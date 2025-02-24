@@ -4,7 +4,7 @@ export class Components {
     constructor(page) {
         this.page = page
     }
-
+    //Ao tentar excluir um registro, aperta em "confirmar", na caixa de diálogo
     async setupDialogListener() {
         // Configura o ouvinte de eventos para a página
         this.page.on('dialog', async dialog => {
@@ -19,14 +19,7 @@ export class Components {
         })
     }
 
-    // async login() {
-    //     await this.page.goto('')
-    //     await this.page.getByPlaceholder('Email').fill('suporte@sindcato24h.com.br')
-    //     await this.page.getByPlaceholder('Password').fill('8VWhhT0G')
-    //     await this.page.getByRole('button', { name: ' Acesse ' }).click();
-    //     await this.page.waitForTimeout(3000)
-    // }
-
+    //Valida o preenchimento automático do endereço ao informar o CEP
     async validateAddress(enderecoSeletor) {
         await this.page.fill('#cep', '49095780')
         await this.page.keyboard.press('Tab')
@@ -45,11 +38,13 @@ export class Components {
         expect(bairro).toBe('Jabotiana')
     }
 
+    //Valida as mensagens de inclusão, edição e remoção de registro
     async alertHaveText(text) {
         const alert = this.page.locator('.alert')
         await expect(alert).toHaveText(text)
     }
 
+    //Filtro na tela de filiados
     async filterMember(filiado) {
         await this.page.getByPlaceholder('Nome').fill(filiado)
         await this.page.click('button[type=submit]')
@@ -57,12 +52,14 @@ export class Components {
         await this.page.waitForTimeout(500)
     }
 
+    //Filtro nas telas de cadastros básicos
     async filterRegistrations(nomeRegistro) {
         await this.page.locator('//input[contains(@placeholder, "Filtro")]').fill(nomeRegistro)
         await this.page.click('button[type=submit]')
         await this.page.waitForTimeout(500)
     }
 
+    //Acesso ao menu lateral
     async navigateSidebarMenu(posicao,cadastro) {
         await this.page.click('a[role="button"]')
         await this.page.locator('text=Cadastros').nth(posicao).click()

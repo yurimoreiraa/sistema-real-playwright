@@ -1,5 +1,4 @@
 const { test, expect } = require('../support')
-const { executeSQL } = require('../support/database')
 
 test('Funcionalidade de filtros e confirmação de registro das contribuições', async ({ page }) => {
     await page.login.loginIn()
