@@ -5,9 +5,6 @@ test('Criação, edição, alteração de senha e reset de senha de Usuário', a
     await page.login.loginIn()
     await page.components.setupDialogListener()
 
-    //Exclusão do usuário atual
-    await executeSQL(`DELETE FROM users WHERE email = 'automatizado2@gmail.com';`)
-
     //Usuários
     await page.locator('a[href$="users"]').click()
     await page.waitForTimeout(500)
@@ -107,4 +104,7 @@ test('Criação, edição, alteração de senha e reset de senha de Usuário', a
     //Adicionar novo filiado para validar login final
     await page.click('a[type="button"]')
     await page.waitForTimeout(500)
+
+    //Exclusão do usuário no final (e não no começo como nos demais testes) para preservar a segurança do sistema, pois acima temos dados reais de acesso
+    await executeSQL(`DELETE FROM users WHERE email = 'automatizado2@gmail.com';`)
 })
