@@ -45,8 +45,8 @@ Caso tenha sugestões ou queira colaborar com melhorias nos testes, fique à von
 ---
 
 ## 📢 Contato
-Se precisar de mais informações, entre em contato! 😊
-Celular: (71) 98131-1592
+Se precisar de mais informações, entre em contato! 😊  
+Celular: (71) 98131-1592  
 Att. Yuri Moreira
 
 
