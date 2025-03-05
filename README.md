@@ -1,7 +1,7 @@
 # ![Sistema Real - Testes E2E](./capa_projeto.png)
 
 ## 📌 Introdução
-Este projeto trata-se de um **sistema real** que está sendo testado, por isso, **arquivos contendo dados sensíveis como login e banco de dados foram ocultados** por questões de segurança.
+Este projeto trata-se de um **sistema real** que está sendo testado, por isso, **arquivo .env contendo dados sensíveis foi ocultado** por questões de segurança.
 
 Possuo um repositório separado, mas relacionado a este mesmo projeto, que utiliza **GitHub Actions** para executar testes automatizados de forma contínua. Os testes são processados **diariamente** de maneira automática, além de serem acionados a cada `push` ou `pull` request. O principal objetivo é assegurar a qualidade e a confiabilidade do sistema por meio de uma abordagem robusta de testes automatizados.
 
@@ -46,5 +46,7 @@ Caso tenha sugestões ou queira colaborar com melhorias nos testes, fique à von
 
 ## 📢 Contato
 Se precisar de mais informações, entre em contato! 😊
+Celular: (71) 98131-1592
+Att. Yuri Moreira
 
 
