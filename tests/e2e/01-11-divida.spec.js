@@ -1,4 +1,5 @@
 const { test, expect } = require('../support')
+const { executeSQL } = require('../support/database')
 
 test('Criação, edição e exclusão de tipo de dívida', async ({ page }) => {
     await page.login.loginIn()
@@ -28,7 +29,7 @@ test('Criação, edição e exclusão de tipo de dívida', async ({ page }) => {
 
     //Save + validação de mensagem
     await page.click('button[type=submit]')
-    await page.components.alertHaveText('Registro salvo com sucesso')
+    await page.components.alertHaveText('Registro salvo com sucesso!')
 
     //Consulta filtro > Edição
     await page.components.filterRegistrations('Novo Teste Automatizado')

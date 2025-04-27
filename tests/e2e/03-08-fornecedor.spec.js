@@ -1,4 +1,5 @@
 const { test, expect } = require('../support')
+const { executeSQL } = require('../support/database')
 
 test('Criação, edição e exclusão de lotações', async ({ page }) => {
     await page.login.loginIn()

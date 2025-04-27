@@ -12,7 +12,7 @@ test('Criação, edição, alteração de senha e reset de senha de Usuário', a
 
     //Novo
     await page.locator('a[href$="novo"]').click()
-    
+
     //Dados
     await page.fill('#nome', 'Novo Teste Automatizado')
     await page.fill('#email', 'automatizado@gmail.com')
@@ -40,7 +40,7 @@ test('Criação, edição, alteração de senha e reset de senha de Usuário', a
     await page.click('button[type=submit]')
 
     //Meu Cadastro > Sair
-    await page.locator('li.nav-item.dropdown a.nav-link').click()
+    await page.locator('li.nav-item.dropdown a.nav-link', { hasText: 'Suporte' }).click()
     await page.click('a[href$="sair"]')
 
     //Login com novo usuário
@@ -68,7 +68,7 @@ test('Criação, edição, alteração de senha e reset de senha de Usuário', a
 
     //Validação de mensagem
     await expect(page.locator('span[style="color: green;"]'))
-    .toHaveText('Senha alterada com sucesso!')
+        .toHaveText('Senha alterada com sucesso!')
 
     //Meu Cadastro > Sair
     await page.locator('li.nav-item.dropdown a.nav-link').click()

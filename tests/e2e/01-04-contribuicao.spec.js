@@ -22,6 +22,7 @@ test('Criação e edição de contribuição', async ({ page }) => {
     await page.fill('#descricao', 'Contribuição Teste Automatizado')
     await page.fill('#valor', '5999')
     await page.fill('#data', '052024')
+    await page.keyboard.press('Tab')
 
     //Origem
     await page.waitForSelector('#origem')
@@ -36,6 +37,7 @@ test('Criação e edição de contribuição', async ({ page }) => {
     await page.fill('#descricao', 'Contribuição Teste Automatizado Edição')
     await page.fill('#valor', '7999')
     await page.fill('#data', '042024')
+    await page.keyboard.press('Tab')
 
     //Origem
     await page.waitForSelector('#origem')

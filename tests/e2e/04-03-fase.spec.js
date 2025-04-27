@@ -1,20 +1,17 @@
 const { test, expect } = require('../support')
-const { executeSQL } = require('../support/database')
 
-test('Criação, edição e exclusão de formas de pagamento', async ({ page }) => {
+test('Criação, edição e exclusão de fase atual', async ({ page }) => {
     await page.login.loginIn()
     await page.components.setupDialogListener()
 
-    //Central de Finanças > Cadastros > Formas de Pagamento
-    await page.components.navigateSidebarMenu('1','forma_pagamento')
+    //Central do Jurídico > Cadastros > Fase Atual
+    await page.components.navigateSidebarMenu('2','fase_atual')
 
     //Novo
     await page.click('a[type="button"]')
 
     //Dados
     await page.fill('#nome', 'Novo Teste Automatizado')
-    await page.locator('#select2-tipo-container').click()
-    await page.locator('li:has-text("Crédito")').first().click()
 
     //Save + validação de mensagem
     await page.click('button[type=submit]')
@@ -26,8 +23,6 @@ test('Criação, edição e exclusão de formas de pagamento', async ({ page }) 
 
     //Dados
     await page.fill('#nome', 'Edição Teste Automatizado')
-    await page.locator('#select2-tipo-container').click()
-    await page.locator('li:has-text("Débito")').first().click()
 
     //Save + validação de mensagem
     await page.click('button[type=submit]')

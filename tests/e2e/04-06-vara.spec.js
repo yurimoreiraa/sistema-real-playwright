@@ -1,32 +1,30 @@
 const { test, expect } = require('../support')
-const { executeSQL } = require('../support/database')
 
-test('Criação, edição e exclusão de lotações', async ({ page }) => {
+test('Criação, edição e exclusão de varas e tribunais', async ({ page }) => {
     await page.login.loginIn()
     await page.components.setupDialogListener()
 
-    //Central de Filiados > Cadastros > Lotação
-    await page.components.navigateSidebarMenu('0','lotacao')
+    //Central do Jurídico > Cadastros > Varas e Trivuinais
+    await page.components.navigateSidebarMenu('2', 'vara')
 
     //Novo
     await page.click('a[type="button"]')
 
     //Dados
+    await page.fill('#codigo', '123456')
     await page.fill('#nome', 'Novo Teste Automatizado')
-    await page.fill('#contato_telefone', '7130303333')
-    await page.fill('#contato_whatsapp', '71999999999')
-    await page.fill('#contato_email', 'teste@gmail.com')
+    await page.selectOption('#comarca_id', 'Comarca Padrão')
+    await page.fill('#juiz_titular', 'Novo Juiz Titular')
+    await page.fill('#juiz_substituto', 'Novo Juiz Substituto')
+    await page.fill('#telefone', '7130303333')
+    await page.fill('#whatsapp', '71999999999')
+    await page.fill('#email', 'teste@gmail.com')
     await page.fill('#complemento', 'Condomínio Teste')
-    await page.waitForSelector('#ativo')
     await page.selectOption('#ativo', 'Não')
     await page.fill('textarea[name="obs"]', 'Observação novo')
 
-    //Órgão
-    await page.locator('#select2-orgao_id-container').click()
-    await page.locator('li:has-text("Órgão Padrão")').first().click()
-
     //Validação do endereço
-    await page.components.validateAddress('#logradouro')
+    await page.components.validateAddress('#endereco')
 
     //Save + validação de mensagem
     await page.click('button[type=submit]')
@@ -37,18 +35,20 @@ test('Criação, edição e exclusão de lotações', async ({ page }) => {
     await page.click('a[title="Editar"]')
 
     //Dados
+    await page.fill('#codigo', '456789')
     await page.fill('#nome', 'Edição Teste Automatizado')
-    await page.fill('#contato_telefone', '7122220000')
-    await page.fill('#contato_whatsapp', '71999990000')
-    await page.fill('#contato_email', 'testeedicao@gmail.com')
-    await page.fill('#complemento', 'Condomínio Edição')
-    await page.waitForSelector('#ativo')
+    await page.selectOption('#comarca_id', 'Comarca Padrão Dois')
+    await page.fill('#juiz_titular', 'Edição Juiz Titular')
+    await page.fill('#juiz_substituto', 'Edição Juiz Substituto')
+    await page.fill('#telefone', '7130300000')
+    await page.fill('#whatsapp', '71999990000')
+    await page.fill('#email', 'testeedicao@gmail.com')
+    await page.fill('#complemento', 'Condomínio Teste Edição')
     await page.selectOption('#ativo', 'Sim')
     await page.fill('textarea[name="obs"]', 'Observação edição')
 
-    //Órgão
-    await page.locator('#select2-orgao_id-container').click()
-    await page.locator('li:has-text("Órgão Padrão Dois")').first().click()
+    //Validação do endereço
+    await page.components.validateAddress('#endereco')
 
     //Save + validação de mensagem
     await page.click('button[type=submit]')
