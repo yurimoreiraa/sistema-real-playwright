@@ -1,4 +1,4 @@
-# ![Sistema Real - Testes E2E](./capa_projeto.png)
+# ![Sistema Real - Testes E2E](capa_projeto.png)
 
 ## 📌 Introdução
 Este projeto trata-se de um **sistema real** que está sendo testado, por isso, **arquivo .env contendo dados sensíveis foi ocultado** por questões de segurança.
