@@ -40,7 +40,7 @@ Por se tratar de um **sistema real**, os testes automatizados não podem ser vis
 ---
 
 ## 📄 Contribuição
-Caso tenha sugestões ou queira colaborar com melhorias nos testes, fique à vontade para abrir um PR ou relatar um bug. 🚀
+Caso tenha sugestões ou queira colaborar com melhorias nos testes, fique à vontade para falar comigo no PV. 🚀
 
 ---
 
